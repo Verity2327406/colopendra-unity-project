@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Hide
+  - Climb
+  - Interact
   layers:
   - Default
   - TransparentFX

@@ -9,6 +9,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 {
     #region Public Values
     public Vector2 MovementValue { get; private set; }
+    public Vector2 ScaleValue { get; private set; }
     #endregion
 
     #region Private Values
@@ -17,6 +18,8 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     #region Player Events
     public event Action JumpEvent;
+    public event Action HideEvent;
+    public event Action InteractEvent;
     #endregion
 
     private void Start()
@@ -45,5 +48,24 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
         if (!context.performed) return;
 
         JumpEvent?.Invoke();
+    }
+
+    public void OnHide(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+
+        HideEvent?.Invoke();
+    }
+
+    public void OnScale(InputAction.CallbackContext context)
+    {
+        ScaleValue = context.ReadValue<Vector2>();
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+
+        InteractEvent?.Invoke();
     }
 }

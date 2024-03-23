@@ -13,6 +13,11 @@ public class Patrol : MonoBehaviour
         _curWaypoint = waypoints[index];
     }
 
+    public Vector3 CurrentWaypoint()
+    {
+        return _curWaypoint.transform.position;
+    }
+
     private void Update()
     {
         if (_curWaypoint.AtWaypoint())
