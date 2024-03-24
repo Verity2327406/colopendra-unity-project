@@ -11,6 +11,10 @@ public class CharacterCard : MonoBehaviour
         {
             collision.GetComponent<AudioSource>().PlayOneShot(collect);
             collision.gameObject.GetComponent<PlayerMovement>().unlockedHide = true;
+            foreach(GameObject hidingSpot in GameObject.FindGameObjectsWithTag("Hide"))
+            {
+                hidingSpot.GetComponent<InteractIcon>().enabled = true;
+            }
             Destroy(gameObject);
         }
     }

@@ -19,6 +19,7 @@ public class Lever : MonoBehaviour
         if (!canInteract) return;
 
         door.SetActive(false);
+        Destroy(GetComponent<InteractIcon>());
         Destroy(this);
     }
 }
