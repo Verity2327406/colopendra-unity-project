@@ -13,4 +13,9 @@ public class InteractIcon : MonoBehaviour
 
         icon.SetActive(Vector3.Distance(player.transform.position, gameObject.transform.position) < dist);
     }
+
+    private void OnDestroy()
+    {
+        Destroy(icon);
+    }
 }
